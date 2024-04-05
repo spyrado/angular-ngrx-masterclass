@@ -2,14 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { appReducers } from './state/app.reducers';
-import { EffectsModule } from '@ngrx/effects';
+import { provideEffects } from '@ngrx/effects';
+import { buscarLivroEffect } from 'src/livros/state/livro.effects';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, StoreModule.forRoot(appReducers, {}), EffectsModule.forRoot([])],
-  providers: [],
+  imports: [
+    BrowserModule,
+  ],
+  providers: [
+    provideStore(appReducers),
+    provideEffects({ buscarLivroEffect })
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -16,6 +16,10 @@ export class LivroService {
         id: 2,
         nome: 'Senhor dos Aneis',
       },
+      {
+        id: 3,
+        nome: 'Xpto teste',
+      },
     ];
   }
 
